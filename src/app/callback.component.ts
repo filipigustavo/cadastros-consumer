@@ -21,6 +21,5 @@ export class CallbackComponent implements OnInit{
   ngOnInit():void{
     this.code = this.route.snapshot.queryParams['code'];
     this.getToken(this.code);
-    console.log(this.code);
   }
 }

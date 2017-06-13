@@ -18,16 +18,15 @@ export class LoginService{
   constructor(private http:Http){}
 
   getToken(code:string):Promise<Token>{
-    let decodedCode = decodeURIComponent((code + '')
-      .replace(/%(?![\da-f]{2})/gi, function () {return '%25'})
-      .replace(/\+/g, '%20'));
+    // this.headers.append('X-CSRF-TOKEN', 'X-CSRF-TOKEN');
+    this.headers.append('X-Requested-With', 'XMLHttpRequest');
 
     let data = new URLSearchParams();
         data.append('grant_type', 'authorization_code');
         data.append('client_id', '3');
         data.append('client_secret', 'Tko1NWWnd9Upmofk2sKZDZ5HfyqrqpUhJI8XIeBD');
         data.append('redirect_uri', 'http://localhost:4200/callback');
-        data.append('code', decodedCode);
+        data.append('code', code);
 
     return this.http
       .post(this.loginUrl, data, {headers:this.headers})
