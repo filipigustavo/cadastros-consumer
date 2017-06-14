@@ -3,35 +3,7 @@
     <div class="col-sm-12">
       <h1>{{title}}</h1>
 
-      <form>
-        <fieldset>
-          <legend>
-            Login
-          </legend>
-
-          <div class="form-group">
-            <label id="form-login-email">email</label>
-            <input type="email" name="email" id="form-login-email" value="" placeholder="seu@email.com" class="form-control" />
-          </div>
-
-          <div class="form-group">
-            <label id="form-login-senha">senha</label>
-            <input type="password" name="senha" id="form-login-senha" value="" placeholder="senha" class="form-control" />
-          </div>
-
-          <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-        </fieldset>
-      </form>
-
-      <div id="login-response">
-
-      </div>
-
       <a class="btn btn-warning" href="http://cadastros.dev/oauth/authorize?client_id=3&redirect_uri=http://localhost:4200/callback&response_type=code&scope=">Retrieve Client Code</a>
-
-      <div id="categorias-response" *ngFor="let categoria of categorias">
-        <span>{{categoria.name}}</span> - <span>{{categoria.created_at|date}}</span><br />
-      </div>
     </div>
   </div>
 </div>

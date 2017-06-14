@@ -1,16 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule, Http, XSRFStrategy, CookieXSRFStrategy } from '@angular/http';
+import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy } from '@angular/http';
 
 import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
 import { CallbackComponent } from './callback.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { LoginComponent } from './login/login.component';
+
+import { xsrfFactory } from './xsrf.factory';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CallbackComponent
+    CallbackComponent,
+    CategoriasComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +26,7 @@ import { CallbackComponent } from './callback.component';
     RoutingModule
   ],
   providers: [
-    { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('XSRF-TOKEN', 'X-CSRF-TOKEN') }
+    {provide: XSRFStrategy, useFactory: xsrfFactory}
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <ul id="categorias-response">
+        <li *ngFor="let categoria of categorias">
+          <span>{{categoria.name}}</span> - <span>{{categoria.created_at|date}}</span><br />
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
