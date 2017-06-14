@@ -10,13 +10,15 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { LoginComponent } from './login/login.component';
 
 import { xsrfFactory } from './xsrf.factory';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CallbackComponent,
     CategoriasComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

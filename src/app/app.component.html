@@ -2,8 +2,15 @@
   <div class="row">
     <div class="col-sm-12">
       <h1>{{title}}</h1>
-
-      <a class="btn btn-warning" href="http://cadastros.dev/oauth/authorize?client_id=3&redirect_uri=http://localhost:4200/callback&response_type=code&scope=">Retrieve Client Code</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <a routerLink="" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
+      <a routerLink="login" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Login</a> |
+      <a routerLink="categorias" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Categorias</a> | 
     </div>
   </div>
 </div>
