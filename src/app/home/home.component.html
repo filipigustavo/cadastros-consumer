@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      
+
+      <form>
+        <div class="form-group">
+          <label>Post Field</label>
+          <input type="text" #postfield class="form-control" />
+        </div>
+        <button class="btn btn-primary" (click)="enviarPost(postfield)">Post!</button>
+      </form>
+
     </div>
   </div>
 </div>
