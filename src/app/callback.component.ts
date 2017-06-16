@@ -25,7 +25,17 @@ export class CallbackComponent implements OnInit{
       localStorage.setItem('refresh_token', this.token.refresh_token);
       localStorage.setItem('token_type', this.token.token_type);
 
+      this.getUser();
+
       this.router.navigate(['/categorias']);
+    });
+  }
+
+  getUser():void{
+    this.login.getUser().then(res => {
+      localStorage.setItem('user_id', res.id.toString());
+      localStorage.setItem('user_email', res.email);
+      localStorage.setItem('user_name', res.name);
     });
   }
 

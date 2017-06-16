@@ -2,11 +2,41 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <ul id="categorias-response">
-        <li *ngFor="let categoria of categorias">
-          <span>{{categoria.name}}</span> - <span>{{categoria.created_at|date}}</span><br />
-        </li>
-      </ul>
+      <h2>Categorias</h2>
+
+      <h3>Inserir categoria</h3>
+      <div class="form-group">
+        <label for="categoria-field">Nome da categoria</label>
+        <input [(ngModel)]="categoriaField" class="form-control" id="categoria-field" />
+      </div>
+      <button class="btn btn-primary" (click)="storeCategoria()">Salvar</button>
+
+      <h3>Categorias cadastradas</h3>
+      <table id="categorias-response" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Objetos</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let categoria of categorias">
+            <td>{{categoria.name}}</td>
+            <td>{{categoria.created_at|date}}</td>
+            <td>
+              <ul *ngIf="categoria.objetos?.length > 0">
+                <li *ngFor="let objeto of categoria.objetos">
+                  <span>{{objeto.name}}</span>
+                </li>
+              </ul>
+            </td>
+            <td><button class="btn btn-xs btn-danger" (click)="deleteCategoria(categoria.id)">Apagar</button></td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
   </div>

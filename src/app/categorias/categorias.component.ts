@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { CategoriaService } from '../services/categoria.service';
 import { Categoria } from '../services/categoria';
@@ -13,6 +13,7 @@ export class CategoriasComponent implements OnInit {
 
   constructor(private categoriaService:CategoriaService) { }
 
+  categoriaField:string;
   categorias:Categoria[];
 
   ngOnInit() {
@@ -20,7 +21,24 @@ export class CategoriasComponent implements OnInit {
   }
 
   getCategorias():void{
-    this.categoriaService.getCategorias().subscribe(data => this.categorias = data);
+    this.categoriaService
+      .getCategorias()
+      .subscribe(data => this.categorias = data);
+  }
+
+  storeCategoria():void{
+    this.categoriaService
+      .storeCategoria(this.categoriaField)
+      .subscribe(res => {
+        this.categorias.push(res);
+        this.categoriaField = '';
+      });
+  }
+
+  deleteCategoria(id:string):void{
+    this.categoriaService
+      .deleteCategoria(id)
+      .subscribe(res => this.categorias = res);
   }
 
 }

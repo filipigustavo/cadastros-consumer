@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 
 import { xsrfFactory } from './xsrf.factory';
 import { HomeComponent } from './home/home.component';
+import { ObjetosComponent } from './objetos/objetos.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     CallbackComponent,
     CategoriasComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ObjetosComponent
   ],
   imports: [
     BrowserModule,

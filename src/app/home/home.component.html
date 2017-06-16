@@ -5,10 +5,15 @@
       <form>
         <div class="form-group">
           <label>Post Field</label>
-          <input type="text" #postfield class="form-control" />
+          <input type="text" [(ngModel)]="fieldValue" name="postValue" class="form-control" />
         </div>
-        <button class="btn btn-primary" (click)="enviarPost(postfield)">Post!</button>
+        <button class="btn btn-primary" (click)="enviarPost()">Post!</button>
       </form>
+
+      <h1>Resposta:</h1>
+      <p class="lead" *ngIf="fieldResponse">
+        {{fieldResponse['post-data']}}
+      </p>
 
     </div>
   </div>

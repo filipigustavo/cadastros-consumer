@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { HomeService } from '../services/home.service';
+import { Post } from '../services/post';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +13,16 @@ export class HomeComponent implements OnInit {
 
   constructor(private home:HomeService) { }
 
-  fieldResponse:string;
+  fieldValue:string;
+  fieldResponse:Post;
 
   ngOnInit() {
   }
 
-  enviarPost(field:string):void{
-    this.home.postField();
+  enviarPost():void{
+    this.home.postField(this.fieldValue).then(res => {
+        return this.fieldResponse = res;
+      });
   }
 
 }
