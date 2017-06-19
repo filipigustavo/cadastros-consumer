@@ -43,8 +43,10 @@ export class ObjetosComponent implements OnInit {
       .subscribe(res => this.objetos.push(res));
   }
 
-  deleteObjeto():void{
-    return;
+  deleteObjeto(id:string):void{
+    this.objetoService
+      .deleteObjeto(id)
+      .subscribe(res => this.objetos = res);
   }
 
 }

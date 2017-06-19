@@ -18,24 +18,30 @@ export class ObjetoService {
     });
   private options = new RequestOptions({headers: this.headers, withCredentials: true});
 
+  private errorHandle = (error:any) => Observable.throw(error);
+
   constructor(private http:Http) { }
 
   getObjetos():Observable<Objeto[]>{
     return this.http
       .get(this.objetosUrl, this.options)
       .map(res => res.json() as Objeto[])
-      .catch((error:any) => Observable.throw(error));
+      .catch(this.errorHandle);
   }
 
   storeObjeto(objeto:string, categoria:string):Observable<Objeto>{
     return this.http
       .post(this.objetosUrl, JSON.stringify({'name':objeto, 'categoria_id': categoria}), this.options)
       .map(res => res.json() as Objeto)
-      .catch((error:any) => Observable.throw(error));
+      .catch(this.errorHandle);
   }
 
   deleteObjeto(id:string){
-    return;
+    let url = this.objetosUrl + '/' + id;
+    return this.http
+      .delete(url, this.options)
+      .map(res => res.json() as Objeto)
+      .catch(this.errorHandle);
   }
 
 }
