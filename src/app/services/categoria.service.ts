@@ -26,9 +26,9 @@ export class CategoriaService{
       .catch((error:any) => Observable.throw(error));
   }
 
-  storeCategoria(name:string):Observable<Categoria>{
+  storeCategoria(categoria:any):Observable<Categoria>{
     return this.http
-      .post(this.categoriaUrl, JSON.stringify({'name':name}), this.options)
+      .post(this.categoriaUrl, JSON.stringify({'name':categoria.name}), this.options)
       .map(res => res.json() as Categoria)
       .catch((error:any) => Observable.throw(error));
   }

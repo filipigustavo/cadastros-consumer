@@ -5,22 +5,22 @@
       <h2>Objetos</h2>
 
       <h3>Inserir objeto</h3>
-      <!-- <form #formObjeto="ngForm"> -->
+      <form #objetoForm="ngForm" (ngSubmit)="storeObjeto()">
         <div class="form-group">
           <label for="objeto-field">Nome do objeto</label>
-          <input [(ngModel)]="objetoField" class="form-control" id="objeto-field" />
+          <input [(ngModel)]="objeto.name" #nameField class="form-control" id="objeto-field" name="name" required />
         </div>
         <div class="form-group">
           <label for="categoria-field">Categoria</label>
-          <select class="form-control" [(ngModel)]="categoriaField" id="categoria-field">
+          <select class="form-control" [(ngModel)]="objeto.categoria_id" id="categoria-field" name="categoria_id" required>
             <option value="">Selecione uma categoria</option>
             <option *ngFor="let categoria of categorias" value="{{categoria.id}}">
               {{categoria.name}}
             </option>
           </select>
         </div>
-        <button class="btn btn-primary" (click)="storeObjeto()">Salvar</button>
-      <!-- </form> -->
+        <button class="btn btn-primary" type="submit" [disabled]="!objetoForm.form.valid">Salvar</button>
+      </form>
 
       <h3>Objetos cadastrados</h3>
       <table class="table table-striped">

@@ -13,6 +13,7 @@ export class CategoriasComponent implements OnInit {
 
   constructor(private categoriaService:CategoriaService) { }
 
+  categoria = {name: ''}
   categoriaField:string;
   categorias:Categoria[];
 
@@ -28,10 +29,10 @@ export class CategoriasComponent implements OnInit {
 
   storeCategoria():void{
     this.categoriaService
-      .storeCategoria(this.categoriaField)
+      .storeCategoria(this.categoria)
       .subscribe(res => {
         this.categorias.push(res);
-        this.categoriaField = '';
+        // this.categoria = '';
       });
   }
 

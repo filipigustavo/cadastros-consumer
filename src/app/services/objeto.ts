@@ -1,9 +1,9 @@
 export interface Objeto{
-  categoria_id:number;
-  created_at:Date;
-  deleted_at:any;
   id:number;
   name:string;
-  updated_at:Date;
+  categoria_id:number;
   user_id:number;
+  created_at:Date;
+  updated_at:Date;
+  deleted_at:any;
 }

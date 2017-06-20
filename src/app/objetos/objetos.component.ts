@@ -15,8 +15,7 @@ export class ObjetosComponent implements OnInit {
 
   constructor(private objetoService:ObjetoService, private categoriaService:CategoriaService) { }
 
-  objetoField:string;
-  categoriaField:string;
+  objeto = {name: '',categoria_id: ''};
   objetos:Objeto[];
   categorias:Categoria[];
 
@@ -39,7 +38,7 @@ export class ObjetosComponent implements OnInit {
 
   storeObjeto():void{
     this.objetoService
-      .storeObjeto(this.objetoField, this.categoriaField)
+      .storeObjeto(this.objeto)
       .subscribe(res => this.objetos.push(res));
   }
 

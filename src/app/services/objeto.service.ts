@@ -29,9 +29,9 @@ export class ObjetoService {
       .catch(this.errorHandle);
   }
 
-  storeObjeto(objeto:string, categoria:string):Observable<Objeto>{
+  storeObjeto(objeto:any):Observable<Objeto>{
     return this.http
-      .post(this.objetosUrl, JSON.stringify({'name':objeto, 'categoria_id': categoria}), this.options)
+      .post(this.objetosUrl, JSON.stringify({'name':objeto.name, 'categoria_id': objeto.categoria_id}), this.options)
       .map(res => res.json() as Objeto)
       .catch(this.errorHandle);
   }

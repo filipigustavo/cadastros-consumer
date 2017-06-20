@@ -5,11 +5,13 @@
       <h2>Categorias</h2>
 
       <h3>Inserir categoria</h3>
-      <div class="form-group">
-        <label for="categoria-field">Nome da categoria</label>
-        <input [(ngModel)]="categoriaField" class="form-control" id="categoria-field" />
-      </div>
-      <button class="btn btn-primary" (click)="storeCategoria()">Salvar</button>
+      <form #categoriaForm="ngForm" (ngSubmit)="storeCategoria()">
+        <div class="form-group">
+          <label for="categoria-field">Nome da categoria</label>
+          <input [(ngModel)]="categoria.name" #nameField class="form-control" id="categoria-field" name="name" required />
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!categoriaForm.form.valid">Salvar</button>
+      </form>
 
       <h3>Categorias cadastradas</h3>
       <table id="categorias-response" class="table table-striped">
