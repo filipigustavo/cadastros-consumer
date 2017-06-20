@@ -3,12 +3,13 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 
+import { environment } from '../../environments/environment';
 import { Objeto } from './objeto';
 
 @Injectable()
 export class ObjetoService {
 
-  private objetosUrl:string = 'http://cadastros.dev/api/objetos';
+  private objetosUrl:string = environment.apiUrl + 'objetos';
 
   private headers = new Headers({
       "Authorization": localStorage.getItem('token_type') + ' ' + localStorage.getItem('access_token'),

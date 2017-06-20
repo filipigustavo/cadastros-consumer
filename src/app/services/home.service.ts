@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../environments/environment';
 import { Post } from '../services/post';
 
 @Injectable()
@@ -22,7 +23,7 @@ export class HomeService{
 
     return this.http
       .post(
-        'http://cadastros.dev/api/receive-post',
+        environment.apiUrl + 'receive-post',
         JSON.stringify(postData),
         {headers:this.headers}
       )

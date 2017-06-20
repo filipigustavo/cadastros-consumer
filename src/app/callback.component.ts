@@ -1,25 +1,31 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from '../environments/environment';
 import { LoginService } from './services/login.service';
 import { Token } from './services/token';
 
 @Component({
   selector: 'callback-component',
-  template: `<span *ngIf="!code">carregando...</span>`,
+  templateUrl: './callback.component.html',
   providers: [LoginService]
 })
 export class CallbackComponent implements OnInit{
   constructor(private router:Router, private route:ActivatedRoute, private login:LoginService){}
 
-  code:string;
+  formCode = {
+    grant_type: 'authorization_code',
+    client_id: '',
+    client_secret: '',
+    redirect_uri: environment.baseUrl + 'callback',
+    code: ''
+  }
   token:Token;
 
-  getToken(code:string):void{
-    this.login.getToken(code).then(res => {
+  getToken():void{
+    this.login.getToken(this.formCode).then(res => {
       this.token = res;
 
-      // console.log(this.token);
       localStorage.setItem('access_token', this.token.access_token);
       localStorage.setItem('expires_in', this.token.expires_in.toString());
       localStorage.setItem('refresh_token', this.token.refresh_token);
@@ -40,12 +46,10 @@ export class CallbackComponent implements OnInit{
   }
 
   ngOnInit():void{
-    this.code = this.route.snapshot.queryParams['code'];
+    this.formCode.code = this.route.snapshot.queryParams['code'];
 
-    if(!this.code){
-      this.router.navigate(['/']);
+    if(!this.formCode.code){
+      this.router.navigate(['/login']);
     }
-
-    this.getToken(this.code);
   }
 }

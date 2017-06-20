@@ -3,11 +3,12 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 
+import { environment } from '../../environments/environment';
 import { Categoria } from './categoria';
 
 @Injectable()
 export class CategoriaService{
-  private categoriaUrl = 'http://cadastros.dev/api/categorias';
+  private categoriaUrl = environment.apiUrl + 'categorias';
 
   private headers = new Headers({
       "Authorization": localStorage.getItem('token_type') + ' ' + localStorage.getItem('access_token'),

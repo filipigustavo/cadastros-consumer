@@ -2,10 +2,35 @@
   <div class="row">
 
     <div class="col-sm-6">
-      <form>
-        <fieldset>
-          <legend>Login Usuário/Senha</legend>
+      <h2>Login com Código</h2>
 
+      <div class="form-group">
+        <label for="form-lc-client_id">Client ID</label>
+        <input class="form-control" id="form-lc-client_id" [(ngModel)]="formCode.client_id" />
+      </div>
+
+      <div class="form-group">
+        <label for="form-lc-redirect_uri">Redirect URI</label>
+        <input class="form-control" id="form-lc-redirect_uri" [(ngModel)]="formCode.redirect_uri" />
+      </div>
+
+      <div class="form-group">
+        <label for="form-lc-response_type">Response Type</label>
+        <input class="form-control" id="form-lc-response_type" [(ngModel)]="formCode.response_type" />
+      </div>
+
+      <div class="form-group">
+        <label for="form-lc-scope">Scope</label>
+        <input class="form-control" id="form-lc-scope" [(ngModel)]="formCode.scope" />
+      </div>
+
+      <a class="btn btn-warning" href="http://cadastros.dev/oauth/authorize?client_id={{formCode.client_id}}&redirect_uri={{formCode.redirect_uri}}&response_type={{formCode.response_type}}&scope={{formCode.scope}}">Retrieve Client Code</a>
+    </div>
+
+    <div class="col-sm-6">
+      <h2>Login Usuário/Senha</h2>
+
+      <form>
           <div class="form-group">
             <label for="form-lp-email">email</label>
             <input type="email" name="email" id="form-lp-email" value="" placeholder="seu@email.com" class="form-control" />
@@ -17,12 +42,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary">Login</button>
-        </fieldset>
       </form>
-    </div>
-
-    <div class="col-sm-6">
-      <a class="btn btn-warning" href="http://cadastros.dev/oauth/authorize?client_id=3&redirect_uri=http://localhost:4200/callback&response_type=code&scope=">Retrieve Client Code</a>
     </div>
 
   </div>
