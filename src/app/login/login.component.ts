@@ -11,6 +11,8 @@ export class LoginComponent{
 
   constructor() { }
 
+  oAuth = environment.apiOauth;
+
   formCode = {
     client_id: '',
     redirect_uri: environment.baseUrl + 'callback',

@@ -24,7 +24,7 @@
         <input class="form-control" id="form-lc-scope" [(ngModel)]="formCode.scope" />
       </div>
 
-      <a class="btn btn-warning" href="http://cadastros.dev/oauth/authorize?client_id={{formCode.client_id}}&redirect_uri={{formCode.redirect_uri}}&response_type={{formCode.response_type}}&scope={{formCode.scope}}">Retrieve Client Code</a>
+      <a class="btn btn-warning" href="{{oAuth}}authorize?client_id={{formCode.client_id}}&redirect_uri={{formCode.redirect_uri}}&response_type={{formCode.response_type}}&scope={{formCode.scope}}">Retrieve Client Code</a>
     </div>
 
     <div class="col-sm-6">
