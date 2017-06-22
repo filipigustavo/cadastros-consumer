@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>{{title}}</h1>
+      <h1>{{title}} <span *ngIf="usuario">- {{usuario}}</span></h1>
     </div>
   </div>
 </div>
@@ -11,7 +11,8 @@
       <a routerLink="" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
       <a routerLink="login" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Login</a> |
       <a routerLink="categorias" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Categorias</a> |
-      <a routerLink="objetos" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Objetos</a> | 
+      <a routerLink="objetos" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Objetos</a> |
+      <button class="link" (click)="logout()">Sair</button>
     </div>
   </div>
 </div>

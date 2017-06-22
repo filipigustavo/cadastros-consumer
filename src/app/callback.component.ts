@@ -33,7 +33,7 @@ export class CallbackComponent implements OnInit{
 
       this.getUser();
 
-      this.router.navigate(['/categorias']);
+      this.router.navigate(['/']);
     });
   }
 
