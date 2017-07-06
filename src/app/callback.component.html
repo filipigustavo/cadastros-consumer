@@ -1,36 +1,36 @@
 <div class="container">
-<div class="row">
-<div class="col-sm-12">
+  <div class="row">
+    <div class="col-sm-12">
 
-  <h2>Login com código</h2>
+      <h2>Login com código</h2>
 
-  <div class="form-group">
-    <label for="form-lc-grant_type">Grant Type</label>
-    <input class="form-control" id="form-lc-grant_type" [(ngModel)]="formCode.grant_type" />
+      <div class="form-group">
+        <label for="form-lc-grant_type">Grant Type</label>
+        <input class="form-control" id="form-lc-grant_type" [(ngModel)]="formCode.grant_type" />
+      </div>
+
+      <div class="form-group">
+        <label for="form-lc-client_id">Client ID</label>
+        <input class="form-control" id="form-lc-client_id" [(ngModel)]="formCode.client_id" />
+      </div>
+
+      <div class="form-group">
+        <label for="form-lc-client_secret">Client Secret</label>
+        <input class="form-control" id="form-lc-client_secret" [(ngModel)]="formCode.client_secret" />
+      </div>
+
+      <div class="form-group">
+        <label for="form-lc-redirect_uri">Redirect URI</label>
+        <input class="form-control" id="form-lc-redirect_uri" [(ngModel)]="formCode.redirect_uri" />
+      </div>
+
+      <div class="form-group">
+        <label for="form-lc-code">Code</label>
+        <input class="form-control" id="form-lc-code" [(ngModel)]="formCode.code" />
+      </div>
+
+      <button class="btn btn-primary" (click)="getToken()">Get Token</button>
+
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="form-lc-client_id">Client ID</label>
-    <input class="form-control" id="form-lc-client_id" [(ngModel)]="formCode.client_id" />
-  </div>
-
-  <div class="form-group">
-    <label for="form-lc-client_secret">Client Secret</label>
-    <input class="form-control" id="form-lc-client_secret" [(ngModel)]="formCode.client_secret" />
-  </div>
-
-  <div class="form-group">
-    <label for="form-lc-redirect_uri">Redirect URI</label>
-    <input class="form-control" id="form-lc-redirect_uri" [(ngModel)]="formCode.redirect_uri" />
-  </div>
-
-  <div class="form-group">
-    <label for="form-lc-code">Code</label>
-    <input class="form-control" id="form-lc-code" [(ngModel)]="formCode.code" />
-  </div>
-
-  <button class="btn btn-primary" (click)="getToken()">Get Token</button>
-
-</div>
-</div>
 </div>

@@ -27,7 +27,6 @@ export class ObjetosComponent implements OnInit {
       this.getObjetos();
       this.getCategorias();
     }
-
   }
 
   getCategorias():void{
