@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HomeService } from '../services/home.service';
 import { Post } from '../services/post';
@@ -11,12 +12,15 @@ import { Post } from '../services/post';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private home:HomeService) { }
+  constructor(private home:HomeService, private router: Router) { }
 
   fieldValue:string;
   fieldResponse:Post;
 
   ngOnInit() {
+    if(!localStorage.access_token){
+      this.router.navigate(['/login']);
+    }
   }
 
   enviarPost():void{

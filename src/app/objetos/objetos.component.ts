@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CategoriaService } from '../services/categoria.service';
 import { Categoria } from '../services/categoria';
@@ -13,15 +14,19 @@ import { Objeto } from '../services/objeto';
 })
 export class ObjetosComponent implements OnInit {
 
-  constructor(private objetoService:ObjetoService, private categoriaService:CategoriaService) { }
+  constructor(private objetoService:ObjetoService, private categoriaService:CategoriaService, private router: Router) { }
 
   objeto = {name: '',categoria_id: ''};
   objetos:Objeto[];
   categorias:Categoria[];
 
   ngOnInit():void {
-    this.getObjetos();
-    this.getCategorias();
+    if(!localStorage.access_token){
+      this.router.navigate(['/login']);
+    }else{
+      this.getObjetos();
+      this.getCategorias();
+    }
   }
 
   getCategorias():void{

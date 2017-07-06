@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { environment } from '../../environments/environment';
 
@@ -9,7 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class LoginComponent{
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   oAuth = environment.apiOauth;
 
@@ -18,6 +19,12 @@ export class LoginComponent{
     redirect_uri: environment.baseUrl + 'callback',
     response_type: 'code',
     scope: ''
+  }
+
+  ngOnInit():void{
+    if(localStorage.access_token){
+      this.router.navigate(['/']);
+    }
   }
 
 }

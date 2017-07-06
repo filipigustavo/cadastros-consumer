@@ -13,7 +13,7 @@ export class AppComponent {
 
   logout():void{
     localStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   ngOnInit():void{}

@@ -1,18 +1,30 @@
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" data-target="#the-menu" aria-expanded="false">
+                <span class="sr-only">Fechar</span>
+                <i class="fa fa-close fa-lg"></i>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="the-menu">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="">Home</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="login">Login</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="categorias">Categorias</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="objetos">Objetos</a></li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <button class="btn btn-danger" (click)="logout()">Sair</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
       <h1>{{title}}</h1>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <a routerLink="" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
-      <a routerLink="login" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Login</a> |
-      <a routerLink="categorias" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Categorias</a> |
-      <a routerLink="objetos" routerLinkActive="text-success" [routerLinkActiveOptions]="{ exact: true }">Objetos</a> |
-      <button class="link" (click)="logout()">Sair</button>
     </div>
   </div>
 </div>
